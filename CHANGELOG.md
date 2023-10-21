@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.1-alpha.0 (2023-10-21)
+
+
+### 🎉 Init | 初始化
+
+* 删除错误的储存库后初始化新库。 ([3005188](https://gitee.com/wemsx/wemwork/commit/3005188127cf9c1be12263ac8b7ad1081f309699))
+
 ### [0.0.2-alpha.1](https://gitee.com/everiary/web/compare/v0.0.2-alpha.0...v0.0.2-alpha.1) (2023-10-04)
 
 
