@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.1-alpha.1](https://gitee.com/wemsx/wemwork/compare/v0.0.1-alpha.0...v0.0.1-alpha.1) (2023-10-22)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修改了此前的移动端判定，暂时取消。 ([cc9b31b](https://gitee.com/wemsx/wemwork/commit/cc9b31b2a306529c83c1561aab3940252a801ab2))
+
+
+### ✨ Features | 新功能
+
+* 开始进行针对移动端的样式分离。 ([c095c18](https://gitee.com/wemsx/wemwork/commit/c095c18bbbe453a27f05ca7e96ce6e45337e276a))
+* 新增PC端样式响应式，移除了此前的移动端方案。 ([0d39c25](https://gitee.com/wemsx/wemwork/commit/0d39c256178ae4492a4446574356d7436a17f720))
+
 ### 0.0.1-alpha.0 (2023-10-21)
 
 
