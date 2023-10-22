@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import "./assets/main.css";
+import 'amfe-flexible'
 
 import App from "./App.vue";
 import App_m from "./MobileApp.vue";
@@ -10,7 +11,8 @@ const _isMobile = () => {
   );
   return flag;
 };
-const app = createApp(_isMobile() ? App_m : App);
+/*const app = createApp(_isMobile() ? App_m : App);*/
+const app = createApp(App)
 import pinia from "./stores/index";
 
 app.use(pinia);

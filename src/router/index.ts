@@ -28,7 +28,8 @@ const mbr = [
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: _isMobile() ? mbr : pcr
+  routes: pcr
 })
+  //routes: _isMobile() ? mbr : pcr
 
 export default router
