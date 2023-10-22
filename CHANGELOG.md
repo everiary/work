@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.1-alpha.2](https://gitee.com/wemsx/wemwork/compare/v0.0.1-alpha.1...v0.0.1-alpha.2) (2023-10-22)
+
+
+### ✏️ Documentation | 文档
+
+* 修改了CHANGELOG.md中的旧项目。 ([578f6bf](https://gitee.com/wemsx/wemwork/commit/578f6bf3556a13b37ff714f5e47e39da34ed6319))
+
+
+### 👻 Hard to Explain | 杂项
+
+* 删除废弃依赖*2。 ([14a81b6](https://gitee.com/wemsx/wemwork/commit/14a81b6cabf6a8666445f2657d233923dc479f5a))
+* 删除了废弃依赖。 ([b02a2a4](https://gitee.com/wemsx/wemwork/commit/b02a2a461451b7fc69db8998ce18585075f7935b))
+
+
+### 📦‍ Build System | 打包构建
+
+* 上传构建产物 ([aa1275e](https://gitee.com/wemsx/wemwork/commit/aa1275edadb1dc86d2f11c063030df21d860d3dd))
+* 首次构建，准备部署到netlify。 ([ffe4729](https://gitee.com/wemsx/wemwork/commit/ffe47294c684b4c57220a94ae80c53324803cfb2))
+
 ### [0.0.1-alpha.1](https://gitee.com/wemsx/wemwork/compare/v0.0.1-alpha.0...v0.0.1-alpha.1) (2023-10-22)
 
 
