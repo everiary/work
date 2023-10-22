@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import { reactive, ref, computed } from 'vue'
+import { reactive, ref } from 'vue'
 import type { Ref } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import MainProcessMobile from './components/MainProcessMobile.vue'
 import { useUserStore } from "./stores/user";
 import { useHmStore } from './stores/homework';
 import { storeToRefs } from 'pinia'
 
 const store = useUserStore();
-const fit = "cover";
 const labelPosition = ref('top')
 const dialogFormVisible = ref(false)
 const hmTargetVisible = ref(false)
@@ -22,41 +20,26 @@ const changeName = () => {
   store.avatar = data.avatar;
 }
 
-const fontSize = computed(()=>{
-  return window.innerWidth / 10 
-})
-
 const current_subject: Ref<string> = ref('')
 </script>
 
 <template>
   <header>
-    <div class="avatar">
-      <el-avatar shape="square" :size="fontSize*1.5" :fit="fit" :src="avatar"/>
-    </div>
-    <div class="wrapper">
-      <HelloWorld :msg="name" />
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/homework">Homework</RouterLink>
-      </nav>
-      <div class="elbtn">
-      <el-button type="primary" plain @click="hmTargetVisible = true">
-        更新作业配置
-      </el-button>
-      <el-button type="primary" plain @click="dialogFormVisible = true" style="margin-left: 0rem;">
-        更新用户配置
-      </el-button>
+
+    <MainProcessMobile />
+    <div class="elbtn">
+        <el-button type="primary" plain @click="hmTargetVisible = true">
+          更新作业配置
+        </el-button>
+        <el-button type="primary" plain @click="dialogFormVisible = true">
+          更新用户配置
+        </el-button>
       </div>
-    </div>
 
     <el-dialog v-model="dialogFormVisible" title="更新用户配置">
       <el-form :model="data">
-        <el-form-item label="你的名字: " :label-width="formLabelWidth" style="margin-left: -4.3rem;">
+        <el-form-item label="你的名字: " :label-width="formLabelWidth">
           <el-input v-model="data.name" autocomplete="off" />
-        </el-form-item>
-        <el-form-item label="头像地址: " :label-width="formLabelWidth" style="margin-left: -4.3rem;">
-          <el-input v-model="data.avatar" autocomplete="off" />
         </el-form-item>
       </el-form>
       <template #footer>
@@ -79,7 +62,8 @@ const current_subject: Ref<string> = ref('')
           :label-width="formLabelWidth">
           <el-input v-model.number="hmStore[current_subject][key].t" autocomplete="off">
             <template #append>
-              权重<el-input v-model.number="hmStore[current_subject][key].r" autocomplete="off" style="width: 1rem; left: 15.5%" />
+              权重<el-input v-model.number="hmStore[current_subject][key].r" autocomplete="off"
+                style="width: 1rem; left: 32.5%" />
             </template>
           </el-input>
         </el-form-item>
@@ -94,10 +78,6 @@ const current_subject: Ref<string> = ref('')
       </template>
     </el-dialog>
   </header>
-
-  <router-view v-slot="{ Component }">
-    <component :is="Component" />
-  </router-view>
 </template>
 
 
@@ -111,7 +91,7 @@ nav {
   width: 100%;
   font-size: 12px;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 0.3rem;
 }
 
 nav a.router-link-exact-active {
@@ -124,59 +104,53 @@ nav a.router-link-exact-active:hover {
 
 nav a {
   display: inline-block;
-  padding: 0 15px;
+  padding: 0 0.2rem;
   border-left: 1px solid var(--color-border);
 }
 
 nav a:first-of-type {
   border: 0;
 }
-@media (min-width: 1024px) {
-  .avatar {
-    width: 150px;
-    margin-left: 1.5px;
-  }
 
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-  }
+header {
+  display: flex;
+  place-items: center;
+  padding-right: calc(var(--section-gap) / 2);
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
 
-  .logo {
-    margin: 0 30px 0 0;
-  }
+.logo {
+  margin: 0 0.3rem 0 0;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+header .wrapper {
+  display: flex;
+  place-items: flex-start;
+  flex-wrap: wrap;
+}
 
-  .elbtn {
-    margin-top: 22.5px;
-  }
+.elbtn {
+  margin-top: 0.25rem;
+}
 
-  nav {
-    text-align: left;
-    margin-left: -9px;
-    font-size: 15px;
+nav {
+  text-align: left;
+  margin-left: -0.1rem;
+  font-size: 0.2rem;
 
-    padding: 7.5px 0;
-    margin-top: 4.5px;
-  }
+  padding: 0.1rem 0;
+  margin-top: 0.06rem;
+}
 
-  .v-enter-active,
-  .v-leave-active {
-    transition: opacity 0.5s ease;
-  }
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
 
-  .v-enter-from,
-  .v-leave-to {
-    opacity: 0;
-  }
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>

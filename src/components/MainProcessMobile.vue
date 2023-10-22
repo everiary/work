@@ -1,15 +1,15 @@
 <template>
     <div class="demo-progress">
-        <el-progress type="circle" :percentage="percentage" :width="fontSize*3" :stroke-width="fontSize*0.15" :color="colors">
+        <el-progress type="dashboard" :percentage="percentage" :width="300" :stroke-width="20" :color="colors">
             <template #default="{ percentage }">
-                <span class="percentage-value">{{ percentage.toFixed(2) }}%</span>
+                <span class="percentage-value">{{ percentage.toFixed(2) }}%</span><br/>
                 <span class="percentage-label">{{ percentage == 100 ? "Done!" : "Progressing..." }}</span>
-                <el-button type="primary" plain @click="hmChangeVisible = true" style="margin-top: 0.1rem;">
-                    更新进度
-                </el-button>
             </template>
         </el-progress>
     </div>
+    <el-button type="primary" plain @click="hmChangeVisible = true">
+        更新
+    </el-button>
     <el-dialog v-model="hmChangeVisible" title="更新作业进度">
         <el-select v-model="current_subject" class="m-2" placeholder="Select">
             <el-option v-for="(value, key) in hmStore" :key="key" :label="key" :value="key" />
@@ -25,7 +25,7 @@
         <template #footer>
             <span class="dialog-footer">
                 <el-button @click="hmChangeVisible = false">Cancel</el-button>
-                <el-button type="primary" @click="hmChangeVisible = false, dataToStore()">
+                <el-button type="primary" @click="hmChangeVisible = false,dataToStore()">
                     Confirm
                 </el-button>
             </span>
@@ -40,16 +40,16 @@ import { useHmStore } from '../stores/homework';
 
 const labelPosition = ref('top')
 const hmChangeVisible = ref(false)
-const formLabelWidth = '5rem'
+const formLabelWidth = '1rem'
 const current_subject = ref('')
 const { hmStore } = storeToRefs(useHmStore())
 
 const colors = [
-    { color: '#f56c6c', percentage: 20 },
-    { color: '#e6a23c', percentage: 40 },
-    { color: '#1989fa', percentage: 60 },
-    { color: '#6f7ad3', percentage: 80 },
-    { color: '#5cb87a', percentage: 100 },
+  { color: '#f56c6c', percentage: 20 },
+  { color: '#e6a23c', percentage: 40 },
+  { color: '#5cb87a', percentage: 60 },
+  { color: '#1989fa', percentage: 80 },
+  { color: '#6f7ad3', percentage: 100 },
 ]
 
 const countHm = () => {
@@ -64,10 +64,6 @@ const countHm = () => {
     return currentRight / allRight * 100
 }
 const percentage = computed(() => { return countHm() })
-
-const fontSize = computed(()=>{
-  return window.innerWidth / 10 
-})
 </script>
 
 <style scoped>
@@ -75,18 +71,18 @@ const fontSize = computed(()=>{
     .percentage-value {
         display: block;
         margin-top: 10px;
-        font-size: 48px;
+        font-size: 50px;
     }
 
     .percentage-label {
         display: block;
         margin-top: 10px;
-        font-size: 36px;
+        font-size: 10px;
     }
 
     .demo-progress .el-progress--line {
         margin-bottom: 15px;
-        width: 350px;
+        width: 250px;
     }
 
     .demo-progress .el-progress--circle {
